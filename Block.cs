@@ -23,11 +23,11 @@ public class Block : MonoBehaviour
         {
             DestroyBlock();
         }
-
     }
 
     private void DestroyBlock()
     {
+        FindObjectOfType<GameStatus>().AddToScore();
         AudioSource.PlayClipAtPoint(breakSound, Camera.main.transform.position, .3f);
         Destroy(gameObject);
         level.BlockDestroy();
